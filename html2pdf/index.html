@@ -11,6 +11,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
+            body {
+                color: #58595B;
+            }
+            
             .modal-body {
                 display: flex;
                 align-items: center;
@@ -19,11 +23,16 @@
 
             .modal-body .spinner-border {
                 margin-left: 15px;
+                color: #F37322;
             }
 
             .btn-primary {
                 background: #F37322;
                 border-color: #F37322;
+            }
+
+            .modal-content {
+                border: none;
             }
         </style>
     </head>
@@ -117,8 +126,10 @@
                     var template = $(this).html();
                     $("#element-to-print").append(template);
                 }
+            });
 
-                
+            $("#element-to-print img").dblclick(function () {
+                $(this).remove();
             });
 
             $("#save").click(function () {
