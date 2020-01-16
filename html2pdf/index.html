@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div id="element-to-print">
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col appendbtn">
+                                    <img class="img-fluid item" src="images/img1.png" />
+                                </div>
+                                <div class="col appendbtn">
+                                    <img class="img-fluid item" src="images/img2.png" />
+                                </div>
+                                <div class="col appendbtn">
+                                    <img class="img-fluid item" src="images/img3.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+        <button id="save" class="btn">Save</button>
+        
+        
+        
+        <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="js/html2pdf.bundle.min.js"></script>
+        <script>
+            $( document ).ready(function() {
+                console.log( "ready!" );
+
+                
+
+                
+            });
+
+            $(".appendbtn").click(function () {
+                if ( $("#element-to-print").find('.item').length) {
+                    console.log("Items exist, adding break");
+                    var template = $(this).html();
+                    $("#element-to-print").append("<div class='break'></div>");
+                    $("#element-to-print").append(template);
+                } else {
+                    console.log("No items yet");
+                    var template = $(this).html();
+                    $("#element-to-print").append(template);
+                }
+
+                
+            });
+
+            $("#save").click(function () {
+                var element = document.getElementById('element-to-print');
+                var opt = {
+                    margin:         1,
+                    filename:       'myfile.pdf',
+                    image:          { type: 'png', quality: 0.98 },
+                    html2canvas:    { scale: 2 },
+                    jsPDF:          { unit: 'in', format: 'letter', orientation: 'portrait' },
+                    pagebreak:      { mode: 'avoid-all', before: '.break' }
+                };
+                html2pdf().set(opt).from(element).save();
+            });
+            
+        </script>
+    </body>
+</html>
