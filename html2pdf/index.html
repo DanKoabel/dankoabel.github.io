@@ -44,7 +44,27 @@
                 </div>
             </div>
         
-
+            <div id="loading" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <!-- <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div> -->
+                    <div class="modal-body">
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <!-- <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
         
         
         
@@ -80,7 +100,7 @@
                 
             });
 
-            $("#save").click(function () {
+            function makePDF() {
                 var element = document.getElementById('element-to-print');
                 var opt = {
                     margin:         1,
@@ -91,7 +111,32 @@
                     pagebreak:      { mode: 'avoid-all', before: '.break' }
                 };
                 html2pdf().set(opt).from(element).save();
+            }
+
+            $("#save").click(function () {
+                $('#loading').modal('show');
+                $.ajax({
+                    url:makePDF(),
+                    success:function(){
+                        $('#loading').modal('hide');
+                    }
+                })
             });
+
+            // $("#save").click(function () {
+            //     $('#loading').modal('show');
+            //     var element = document.getElementById('element-to-print');
+            //     var opt = {
+            //         margin:         1,
+            //         filename:       'myfile.pdf',
+            //         image:          { type: 'png', quality: 0.98 },
+            //         html2canvas:    { scale: 2 },
+            //         jsPDF:          { unit: 'in', format: 'letter', orientation: 'portrait' },
+            //         pagebreak:      { mode: 'avoid-all', before: '.break' }
+            //     };
+            //     html2pdf().set(opt).from(element).save();
+
+            // });
             
         </script>
     </body>
