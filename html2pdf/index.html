@@ -100,7 +100,8 @@
                 
             });
 
-            function makePDF() {
+            $("#save").click(function () {
+                $('#loading').modal('show');
                 var element = document.getElementById('element-to-print');
                 var opt = {
                     margin:         1,
@@ -110,33 +111,18 @@
                     jsPDF:          { unit: 'in', format: 'letter', orientation: 'portrait' },
                     pagebreak:      { mode: 'avoid-all', before: '.break' }
                 };
-                html2pdf().set(opt).from(element).save();
-            }
+                // html2pdf().set(opt).from(element).save();
+                html2pdf()
+                    .set(opt)
+                    .from(element)
+                    .save()
+                    .then(
+                        function() {
+                            $('#loading').modal('hide')
+                        }
+                    );
 
-            $("#save").click(function () {
-                $('#loading').modal('show');
-                $.ajax({
-                    url:makePDF(),
-                    success:function(){
-                        $('#loading').modal('hide');
-                    }
-                })
             });
-
-            // $("#save").click(function () {
-            //     $('#loading').modal('show');
-            //     var element = document.getElementById('element-to-print');
-            //     var opt = {
-            //         margin:         1,
-            //         filename:       'myfile.pdf',
-            //         image:          { type: 'png', quality: 0.98 },
-            //         html2canvas:    { scale: 2 },
-            //         jsPDF:          { unit: 'in', format: 'letter', orientation: 'portrait' },
-            //         pagebreak:      { mode: 'avoid-all', before: '.break' }
-            //     };
-            //     html2pdf().set(opt).from(element).save();
-
-            // });
             
         </script>
     </body>
