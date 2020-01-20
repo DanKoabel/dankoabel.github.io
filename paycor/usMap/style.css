@@ -1,3 +1,40 @@
+@font-face {
+    font-family: jenna;
+    src: url(jennaSuePro.ttf);
+}
+
+@font-face {
+    font-family: myriad;
+    src: url(myriadProSemi.otf);
+}
+.st0{fill:#F37322;}
+.st1{fill:#F37322;}
+.st2{fill:#333333;}
+.st3{fill:#FFFFFF;}
+.st4{fill:#215FAB;}
+.st5{fill:#FFFFFF;stroke:#F37322;stroke-miterlimit:10;}
+.st6{fill:#58595B;}
+.st7{font-family:'myriad';}
+.st8{font-size:19.1889px;}
+.st9{font-size:10.3794px;}
+.st10{fill:#6D6F71;}
+.st11{fill:#E4E5E6;}
+.st12{font-size:38.544px;}
+.st13{font-family:'jenna';}
+.st14{font-size:57.816px;}
+
+.orange {
+    fill: #F37322;
+}
+
+.dkGrey {
+    fill: #6D6F71;
+}
+
+.ltGrey {
+    fill: #E4E5E6;
+}
+
 path:hover, circle:hover {
     /* stroke: #ED7200 !important;
     stroke-width:2px;
