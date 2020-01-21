@@ -122,7 +122,7 @@ path:hover, circle:hover {
 
 <!-- <script src="scripts.js" async defer></script> -->
 <script>
-$("#states path, #states circle").hover(function(e) {
+$("#states path, #states circle, #states--inject-1 path, #states--inject-1 circle").hover(function(e) {
   $('#info-box').css('display','block');
   $('#info-box').html($(this).data('info'));
 });
