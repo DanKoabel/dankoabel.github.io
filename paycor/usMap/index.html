@@ -21,7 +21,7 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<h2>Testing4</h2>
+		<h2>Testing5</h2>
 <div id="info-box"></div>
 <style>
 	body {overflow: hidden;}
@@ -129,10 +129,13 @@ path:hover, circle:hover {
 <script>
 	jQuery(window).load(function () {
 		console.log('Page loaded');
+		$("svg").hover(function(e) {
+			console.log('hovering over svg')
+		});
 
 		$("#states path, #states circle").hover(function(e) {
-		$('#info-box').css('display','block');
-		$('#info-box').html($(this).data('info'));
+			$('#info-box').css('display','block');
+			$('#info-box').html($(this).data('info'));
 		});
 
 		$("#states path, #states circle").mouseleave(function(e) {
