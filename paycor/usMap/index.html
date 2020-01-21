@@ -21,7 +21,7 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-		<h2>Testing3</h2>
+		<h2>Testing4</h2>
 <div id="info-box"></div>
 <style>
 	body {overflow: hidden;}
@@ -127,28 +127,34 @@ path:hover, circle:hover {
 
 <!-- <script src="scripts.js" async defer></script> -->
 <script>
-$("#states path, #states circle").hover(function(e) {
-  $('#info-box').css('display','block');
-  $('#info-box').html($(this).data('info'));
-});
+	jQuery(window).load(function () {
+		console.log('Page loaded');
 
-$("#states path, #states circle").mouseleave(function(e) {
-  $('#info-box').css('display','none');
-});
+		$("#states path, #states circle").hover(function(e) {
+		$('#info-box').css('display','block');
+		$('#info-box').html($(this).data('info'));
+		});
 
-$(document).mousemove(function(e) {
-  $('#info-box').css('top',e.pageY-$('#info-box').height()-30);
-  $('#info-box').css('left',e.pageX-($('#info-box').width())/2);
-}).mouseover();
+		$("#states path, #states circle").mouseleave(function(e) {
+		$('#info-box').css('display','none');
+		});
 
-var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-if(ios) {
-  $('a').on('click touchend', function() { 
-    var link = $(this).attr('href');   
-    window.open(link,'_blank');
-    return false;
-  });
-}
+		$(document).mousemove(function(e) {
+		$('#info-box').css('top',e.pageY-$('#info-box').height()-30);
+		$('#info-box').css('left',e.pageX-($('#info-box').width())/2);
+		}).mouseover();
+
+		var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+		if(ios) {
+		$('a').on('click touchend', function() { 
+			var link = $(this).attr('href');   
+			window.open(link,'_blank');
+			return false;
+		});
+		}
+
+	});
+
 </script>
 </body>
 </html>
