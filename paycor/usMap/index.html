@@ -137,13 +137,13 @@ path:hover, circle:hover {
 			console.log('hovering over testing')
 		});
 
-		$("#states path, #states circle").hover(function(e) {
+		$("#testing path, #testing circle").hover(function(e) {
 			$('#info-box').css('display','block');
 			$('#info-box').html($(this).data('info'));
 		});
 
-		$("#states path, #states circle").mouseleave(function(e) {
-		$('#info-box').css('display','none');
+		$("#testing path, #testing circle").mouseleave(function(e) {
+			$('#info-box').css('display','none');
 		});
 
 		$(document).mousemove(function(e) {
