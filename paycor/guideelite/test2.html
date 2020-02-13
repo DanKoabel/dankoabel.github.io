@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .page {
+            display: none;
+        }
+        .default {
+            display:block;
+        }
+        
+        :target {
+            display:block;
+            -webkit-animation-name: fadeIn;
+            -webkit-animation-duration: .5s;
+            animation-name: fadeIn;
+            animation-duration: .5s;
+        }
+        
+        :target ~ .default {
+            display:none;
+            -webkit-animation-name: fadeOut;
+            -webkit-animation-duration: .5s;
+            animation-name: fadeIn;
+            animation-duration: .5s;
+        }
+
+        @-webkit-keyframes fadeIn { 
+            0% { opacity: 0; }
+            20% { opacity: 0; }
+            40% { opacity: 0.3; }
+            60% { opacity: 0.5; }
+            80% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            20% { opacity: 0; }
+            40% { opacity: 0.3; }
+            60% { opacity: 0.5; }
+            80% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        @-webkit-keyframes fadeOut { 
+            100% { opacity: 1; }
+            80% { opacity: 0.9; }
+            60% { opacity: 0.5; }
+            40% { opacity: 0.3; }
+            20% { opacity: 0; }
+            0% { opacity: 0; }
+        }
+
+        @keyframes fadeOut {
+            100% { opacity: 1; }
+            80% { opacity: 0.9; }
+            60% { opacity: 0.5; }
+            40% { opacity: 0.3; }
+            20% { opacity: 0; }
+            0% { opacity: 0; }
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="row py-3">
+            <div class="col">
+                <a href="#step1">Page 1</a>
+            </div>
+            <div class="col">
+                <a href="#step2">Page 2</a>
+            </div>
+            <div class="col">
+                <a href="#step3">Page 3</a>
+            </div>
+        </div>
+        <div id="step3" class="row page">
+            <div class="col">
+                <h1>Page 3</h1>
+            </div>
+        </div>
+        <div id="step2" class="row page">
+            <div class="col">
+                <h1>Page 2</h1>
+            </div>
+        </div>
+        <div id="step1" class="row page default">
+            <div class="col">
+                <h1>Page 1</h1>
+            </div>
+        </div>
+    </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
